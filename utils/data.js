@@ -2,7 +2,7 @@ export const data = {
   products: [
     {
       name: "Free shirt",
-      slug: "free-shirt",
+      slug: "shirt-1",
       category: "Shirts",
       image: "/images/shirt1.jpg",
       price: 70,
@@ -14,7 +14,7 @@ export const data = {
     },
     {
       name: "Slim shirt",
-      slug: "slim-shirt",
+      slug: "shirt-2",
       category: "Shirts",
       image: "/images/shirt2.jpg",
       price: 70,
@@ -26,7 +26,7 @@ export const data = {
     },
     {
       name: "Big shirt",
-      slug: "big-shirt",
+      slug: "shirt-3",
       category: "Shirts",
       image: "/images/shirt3.jpg",
       price: 70,
@@ -38,7 +38,7 @@ export const data = {
     },
     {
       name: "Fancy shirt",
-      slug: "fancy-shirt",
+      slug: "shirt-4",
       category: "Shirts",
       image: "/images/pants1.jpg",
       price: 70,
@@ -50,7 +50,7 @@ export const data = {
     },
     {
       name: "New shirt",
-      slug: "new-shirt",
+      slug: "shirt-5",
       category: "Shirts",
       image: "/images/pants2.jpg",
       price: 70,
