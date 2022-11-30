@@ -4,24 +4,35 @@ import { useRouter } from "next/router";
 import { data } from "../../utils/data";
 import Link from "next/link";
 import Image from "next/image";
+import { Store } from "../../utils/Store";
+import { useContext } from "react";
 
 function ProductPage() {
   const { query } = useRouter();
-
-  let result = [];
-  for (let i = 0; i < data.products.length; i++) {
-    if (data.products[i]["slug"] === query.slug) {
-      result.push(data.products[i]);
-    }
-  }
-
-  let product = result[0];
-
-  console.log("product : ", product);
-
+  const { state, dispatch } = useContext(Store);
+  const product = data.products.find((x) => x["slug"] == query.slug);
   if (!product) {
     return <div>Product not found</div>;
   }
+
+  function addCartHandler() {
+    console.log("add function ran : ", product.slug);
+
+    const existItem = state.cart.cartItems.find((x) => x.slug === product.slug);
+
+    const quantity = existItem ? existItem.quantity + 1 : 1;
+
+    let payload = { ...product, quantity };
+
+    console.log("payload : ", payload);
+
+    //successful execution - no logical error in dispatch
+    dispatch({
+      type: "CART_ADD_ITEM",
+      payload: payload,
+    });
+  }
+
   return (
     <div>
       <Layout title={product.name}>
@@ -59,7 +70,9 @@ function ProductPage() {
               <div>Status</div>
               <div>{product.countInStock > 0 ? "In stock" : "Unavailable"}</div>
             </div>
-            <button className="primary-button w-full">Add to cart</button>
+            <button className="primary-button w-full" onClick={addCartHandler}>
+              Add to cart
+            </button>
           </div>
         </div>
       </Layout>

@@ -1,4 +1,4 @@
-export const data = {
+const data = {
   products: [
     {
       name: "Shirt 1",
@@ -62,3 +62,7 @@ export const data = {
     },
   ],
 };
+
+const product = data.products.find((x) => x["slug"] == "shirt-1");
+
+console.log(product);
