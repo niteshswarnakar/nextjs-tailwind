@@ -24,7 +24,7 @@ export default function Layout({ title, children }) {
               <a className="text-lg font-bold">amazona</a>
             </Link>
             <div>
-              <Link href="/" legacyBehavior>
+              <Link href="/cart" legacyBehavior>
                 <a className="px-2">
                   Cart
                   {cart.cartItems.length > 0 && (

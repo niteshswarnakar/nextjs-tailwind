@@ -9,6 +9,7 @@ import { useContext } from "react";
 
 function ProductPage() {
   const { query } = useRouter();
+  const router = useRouter();
   const { state, dispatch } = useContext(Store);
   const product = data.products.find((x) => x["slug"] == query.slug);
   if (!product) {
@@ -31,6 +32,8 @@ function ProductPage() {
       type: "CART_ADD_ITEM",
       payload: payload,
     });
+
+    router.push('/cart')
   }
 
   return (
@@ -75,6 +78,7 @@ function ProductPage() {
             </button>
           </div>
         </div>
+        <Link href = "/cart">Cart page</Link>
       </Layout>
     </div>
   );
