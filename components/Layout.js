@@ -8,8 +8,6 @@ export default function Layout({ title, children }) {
 
   const { cart } = state;
 
-  console.log("cart.cartItems from layout.js : ", cart.cartItems);
-
   return (
     <>
       <Head>

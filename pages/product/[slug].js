@@ -17,15 +17,11 @@ function ProductPage() {
   }
 
   function addCartHandler() {
-    console.log("add function ran : ", product.slug);
-
     const existItem = state.cart.cartItems.find((x) => x.slug === product.slug);
 
     const quantity = existItem ? existItem.quantity + 1 : 1;
 
     let payload = { ...product, quantity };
-
-    console.log("payload : ", payload);
 
     //successful execution - no logical error in dispatch
     dispatch({
@@ -33,7 +29,7 @@ function ProductPage() {
       payload: payload,
     });
 
-    router.push('/cart')
+    router.push("/cart");
   }
 
   return (
@@ -78,7 +74,7 @@ function ProductPage() {
             </button>
           </div>
         </div>
-        <Link href = "/cart">Cart page</Link>
+        <Link href="/cart">Cart page</Link>
       </Layout>
     </div>
   );
