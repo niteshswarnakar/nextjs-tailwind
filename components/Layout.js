@@ -11,7 +11,7 @@ export default function Layout({ title, children }) {
 
   useEffect(() => {
     setCartItemCount(cart.cartItems.reduce((a, c) => a + c.quantity, 0));
-  }, []);
+  });
 
   return (
     <>
@@ -37,7 +37,7 @@ export default function Layout({ title, children }) {
                   )}
                 </a>
               </Link>
-              <Link href="/" legacyBehavior>
+              <Link href="/login" legacyBehavior>
                 <a className="px-2">Login</a>
               </Link>
             </div>

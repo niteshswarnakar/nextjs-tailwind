@@ -7,8 +7,10 @@ import Image from "next/image";
 import { XCircleIcon } from "@heroicons/react/outline";
 import { useState } from "react";
 import dynamic from "next/dynamic";
+import { useRouter } from "next/router";
 
 function Cart() {
+  const router = useRouter();
   const { state, dispatch } = useContext(Store);
   const [num, setNum] = useState();
   console.log("cartItems :", state.cart.cartItems);
@@ -91,7 +93,7 @@ function Cart() {
               </tbody>
             </table>
           </div>
-          <div className="card p-5 h-16">
+          <div className="card p-5 h-32">
             <ul>
               <li>
                 <div className="pb-3">
@@ -102,6 +104,14 @@ function Cart() {
                     0
                   )}
                 </div>
+              </li>
+              <li>
+                <button
+                  className="primary-button"
+                  onClick={() => router.push("login?redirect=/shipping")}
+                >
+                  Checkout
+                </button>
               </li>
             </ul>
           </div>
