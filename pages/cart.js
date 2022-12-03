@@ -6,6 +6,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { XCircleIcon } from "@heroicons/react/outline";
 import { useState } from "react";
+import dynamic from "next/dynamic";
 
 function Cart() {
   const { state, dispatch } = useContext(Store);
@@ -110,4 +111,4 @@ function Cart() {
   );
 }
 
-export default Cart;
+export default dynamic(() => Promise.resolve(Cart), { ssr: false });
