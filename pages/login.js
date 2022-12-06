@@ -2,16 +2,48 @@ import React from "react";
 import Layout from "../components/Layout";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
+import { signIn, useSession } from "next-auth/react";
+import { getError } from "../utils/error";
+import { toast } from "react-toastify";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 
 export default function LoginPage() {
+  const { data: session } = useSession();
+  const router = useRouter();
+  const { redirect } = router.query;
+
+  useEffect(() => {
+    //use effect ta run vaxaina aile samma because session is always undefined
+    console.log("session vaneko : ", session);
+    console.log("hamro user : ", session?.user);
+    if (session?.user) {
+      router.push(redirect || "/");
+    }
+  }, [router, session, redirect]);
+
   const {
     handleSubmit,
     register,
     formState: { errors },
   } = useForm();
 
-  const submitHandler = (email, password) => {
-    console.log(email, " - ", password);
+  const submitHandler = async (formData) => {
+    console.log("entered email : ", formData.email);
+    console.log("entered password : ", formData.password);
+
+    try {
+      const result = await signIn("credentials", {
+        redirect: false,
+        email: formData.email,
+        password: formData.password,
+      });
+      if (result.error) {
+        console.log(result.error);
+      }
+    } catch (err) {
+      console.log(getError(err));
+    }
   };
 
   return (
@@ -63,8 +95,11 @@ export default function LoginPage() {
             )}
           </div>
         </div>
+
         <div className="mb-4 ">
-          <button className="primary-button">Login</button>
+          <button type="submit" className="primary-button">
+            Login
+          </button>
         </div>
         <div className="mb-4">
           Don&apos;t have an account ? &nbsp;

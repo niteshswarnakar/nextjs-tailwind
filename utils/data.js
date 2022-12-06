@@ -14,6 +14,12 @@ export const data = {
       password: bcrypt.hashSync("123456"),
       isAdmin: false,
     },
+    {
+      name: "nitesh",
+      email: "nitesh.swarnakar1@gmail.com",
+      password: bcrypt.hashSync("random4545#"),
+      isAdmin: false,
+    },
   ],
   products: [
     {
