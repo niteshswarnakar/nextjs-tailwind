@@ -5,6 +5,8 @@ import { useForm } from "react-hook-form";
 import { useContext } from "react";
 import { Store } from "../utils/Store";
 import Cookies from "js-cookie";
+import { useRouter } from "next/router";
+
 function ShippingScreen() {
   const { state, dispatch } = useContext(Store);
   const { cart } = state;
@@ -15,6 +17,8 @@ function ShippingScreen() {
     formState: { errors },
     setValue,
   } = useForm();
+
+  const router = useRouter();
 
   useEffect(() => {
     setValue("fullName", shippingAddress.fullName);
@@ -43,6 +47,7 @@ function ShippingScreen() {
         },
       })
     );
+    router.push("/payment");
   };
 
   return (

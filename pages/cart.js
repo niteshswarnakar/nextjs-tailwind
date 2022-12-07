@@ -108,7 +108,7 @@ function Cart() {
               <li>
                 <button
                   className="primary-button"
-                  onClick={() => router.push("login?redirect=/shipping")}
+                  onClick={() => router.push("/shipping")}
                 >
                   Checkout
                 </button>
