@@ -8,7 +8,7 @@ html {
 }
 
 a {
-  color: inherit;
+  @apply text-blue-600 hover:text-blue-800;
   text-decoration: none;
 }
 
@@ -22,4 +22,17 @@ a {
 
 .primary-button {
   @apply rounded bg-amber-300 py-2 px-4 shadow outline-none hover:bg-amber-400  active:bg-amber-500;
+}
+.primary-button-outline {
+  @apply rounded border-amber-300 py-2 px-4 shadow  hover:border  active:bg-amber-500;
+}
+
+input,
+select,
+textarea {
+  @apply rounded border p-2 outline-none ring-indigo-300 focus:ring;
+}
+
+.dropdown-link {
+  @apply flex px-5 py-2 hover:bg-gray-200;
 }

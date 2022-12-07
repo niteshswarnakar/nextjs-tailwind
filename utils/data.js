@@ -1,7 +1,29 @@
+import bcrypt from "bcryptjs/dist/bcrypt";
+
 export const data = {
+  users: [
+    {
+      name: "John",
+      email: "admin@example.com",
+      password: bcrypt.hashSync("123456"),
+      isAdmin: true,
+    },
+    {
+      name: "Jane",
+      email: "user@example.com",
+      password: bcrypt.hashSync("123456"),
+      isAdmin: false,
+    },
+    {
+      name: "nitesh",
+      email: "nitesh.swarnakar1@gmail.com",
+      password: bcrypt.hashSync("random4545#"),
+      isAdmin: false,
+    },
+  ],
   products: [
     {
-      name: "Free shirt",
+      name: "Shirt 1",
       slug: "shirt-1",
       category: "Shirts",
       image: "/images/shirt1.jpg",
@@ -13,7 +35,7 @@ export const data = {
       description: "A Popular T-Shirt",
     },
     {
-      name: "Slim shirt",
+      name: "Shirt 2",
       slug: "shirt-2",
       category: "Shirts",
       image: "/images/shirt2.jpg",
@@ -25,7 +47,7 @@ export const data = {
       description: "A Popular T-Shirt",
     },
     {
-      name: "Big shirt",
+      name: "Shirt 3",
       slug: "shirt-3",
       category: "Shirts",
       image: "/images/shirt3.jpg",
@@ -37,7 +59,7 @@ export const data = {
       description: "A Popular T-Shirt",
     },
     {
-      name: "Fancy shirt",
+      name: "Shirt 4",
       slug: "shirt-4",
       category: "Shirts",
       image: "/images/pants1.jpg",
@@ -49,7 +71,7 @@ export const data = {
       description: "A Popular T-Shirt",
     },
     {
-      name: "New shirt",
+      name: "Shirt 6",
       slug: "shirt-5",
       category: "Shirts",
       image: "/images/pants2.jpg",
