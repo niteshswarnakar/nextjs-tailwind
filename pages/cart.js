@@ -121,4 +121,4 @@ function Cart() {
   );
 }
 
-export default dynamic(() => Promise.resolve(Cart), { ssr: false });
+export default dynamic(() => Promise.resolve("Home"), { ssr: false });
