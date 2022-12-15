@@ -108,7 +108,7 @@ function Cart() {
               <li>
                 <button
                   className="primary-button"
-                  onClick={() => router.push("login?redirect=/shipping")}
+                  onClick={() => router.push("/shipping")}
                 >
                   Checkout
                 </button>
@@ -121,4 +121,4 @@ function Cart() {
   );
 }
 
-export default dynamic(() => Promise.resolve(Cart), { ssr: false });
+export default dynamic(() => Promise.resolve("Home"), { ssr: false });
